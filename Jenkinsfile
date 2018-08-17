@@ -6,7 +6,16 @@ pipeline {
           agent {dockerfile true }
  
            steps{
-               echo 'Hello World!'
+	           script{
+		           try{
+		           		sh ("docker ps")
+						echo 'Hello World!'   
+		           }
+		           catch(ex){
+		           		echo 'Finalizado con error' + ex.getmessage()
+		           		error('Failed')
+		           }
+               }
            }
        }
    }
