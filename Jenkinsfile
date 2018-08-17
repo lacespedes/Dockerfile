@@ -3,7 +3,11 @@ pipeline {
    
    stages {
        stage ('Example') {
-          agent {dockerfile true }
+          agent {
+          		dockerfile true
+          		
+          		args = '-d -p 5000:81' 
+          	}
  
            steps{
 	           script{
