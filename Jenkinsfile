@@ -5,8 +5,6 @@ pipeline {
        stage ('Example') {
           agent {
           		dockerfile true
-          		
-          		args = '-d -p 5000:81' 
           	}
  
            steps{
