@@ -1,7 +1,10 @@
 #Base image
-FROM ubuntu
+FROM Ubuntu 16.04
+
+MAINTAINER Lcm leonardo.cespedes@gmail.com
 
 # Do image configuration
-RUN /bin/bash -C 'echo This would generally be apt-get or other system conf'
-ENV myCustomEnvVar="This is a sample."\
-    otherEnvVar="This is also a sample."
+RUN apt-get update
+RUN apt-get -y install apache2
+EXPOSE 81
+CMD /usr/sbin/apache2ctl -D FOREGROUND
